@@ -37,6 +37,36 @@
       color: #334155;
       font-size: 1.05rem;
     }
+
+    .tagline-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .back-btn {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #22c55e;
+      text-decoration: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: 8px;
+      background: #e0f2fe;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #bfdbfe;
+      transform: translateX(-2px);
+    }
+
+    @media (max-width: 640px) {
+      .tagline-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
     .card {
       background: #ffffff;
       border-radius: 20px;
@@ -86,6 +116,28 @@
       font-size: 1rem;
       margin-top: 0.5rem;
     }
+
+    button.loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    button.loading::after {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-top-color: white;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 10px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     footer {
       margin-top: 5rem;
       text-align: center;
@@ -163,7 +215,10 @@
   <div class="container">
     <div class="hero">
       <div>
-        <div class="tagline">PKM Center Universitas Negeri Malang</div>
+        <div class="tagline-wrapper">
+          <a href="index.html" class="back-btn">← back</a>
+          <div class="tagline">PKM Center Universitas Negeri Malang</div>
+        </div>
         <h1>PKM Bestie<br/><span class="gradient-text">Find Your Dream Team</span></h1>
         <p>
           <b>Mau ikut PKM tapi masih belum punya tim?</b><br>
@@ -185,7 +240,7 @@
 
         <div class="field">
           <label>NIM</label>
-          <input type="text" name="nim" required placeholder="nim kamu" />
+          <input type="number" name="nim" required placeholder="nim kamu" />
         </div>
 
         <div class="field">
@@ -213,7 +268,7 @@
 
         <div class="field">
           <label>Kontak (WhatsApp Only)</label>
-          <input type="text" name="contact" required placeholder="boleh minta wa nya?"/>
+          <input type="number" name="contact" required placeholder="boleh minta wa nya?"/>
         </div>
 
         <div class="field full">
@@ -255,20 +310,46 @@
       © 2025 PKM Center Universitas Negeri Malang · Make it simple
     </footer>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyOD1NNR7zQ9v6Vpry6U2skMBgrV7rZpTFZoQYvY7phgQy0CNek_CEQHUSLbXcD5Wu3/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzS8fs3DeDh-2G4awdc8MXmRYBYIdqZoa-r9r8LuKCskX9ZcjsDHPtyZPYfbgoR0IRX/exec';
     const form = document.getElementById('pkmForm');
+    const button = form.querySelector('button');
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(() => {
-          alert('Berhasil! Data kamu sudah tersimpan ✨');
-          form.reset();
-        })
-        .catch(() => alert('Gagal mengirim data.'));
+
+      // loading state
+      button.classList.add('loading');
+      button.textContent = 'Mengirim...';
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil 🎉',
+          text: 'Data kamu berhasil disimpan!',
+          confirmButtonColor: '#2563eb'
+        });
+        form.reset();
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: 'Terjadi kesalahan. Silakan coba lagi.',
+          confirmButtonColor: '#ef4444'
+        });
+      })
+      .finally(() => {
+        button.classList.remove('loading');
+        button.textContent = 'Daftar PKM Bestie';
+      });
     });
   </script>
+
 </body>
 </html>
