@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PKM Bestie – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #e0f2fe, #fef3c7);
+      color: #0f172a;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 5rem 1.5rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .tagline {
+      color: #2563eb;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin: 0.5rem 0 1rem;
+    }
+    p {
+      color: #334155;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 35px 60px rgba(0,0,0,0.15);
+    }
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    footer {
+      margin-top: 5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+    @media(max-width: 768px){
+      h1 { font-size: 2.3rem; }
+      .menu { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="tagline">Innovating for Real Solutions</div>
+      <h1>PKM Bestie</h1>
+      <p>
+        Platform pencarian tim PKM untuk mahasiswa yang ingin berjuang bersama.
+        Temukan partner sesuai minat, keahlian, dan skema PKM.
+      </p>
+    </header>
+
+    <section class="menu">
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h2>Cari Tim</h2>
+        <p>
+          Cocok untuk kamu yang ingin ikut PKM tapi belum punya tim.
+          Temukan partner dengan minat dan keahlian yang sejalan.
+        </p>
+        <a href="form.html" class="btn">Cari Tim Sekarang</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">👥</div>
+        <h2>Cari Anggota</h2>
+        <p>
+          Punya ide atau tim PKM tapi masih kurang anggota?
+          Publikasikan kebutuhan timmu dan temukan kandidat terbaik.
+        </p>
+        <a href="form.html" class="btn">Cari Anggota</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 PKM Bestie · PKM-KI Platform
+    </footer>
+
+  </div>
+</body>
+</html>

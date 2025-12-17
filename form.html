@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PKM Bestie – Find Your Dream Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #e0f2fe, #fef3c7);
+      color: #0f172a;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .tagline {
+      color: #2563eb;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    p {
+      color: #334155;
+      font-size: 1.05rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    form { }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+    .field { display: flex; flex-direction: column; }
+    .field.full { grid-column: span 2; }
+
+    @media(max-width: 768px){
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: span 1; }
+    }
+    label { font-weight: 600; font-size: 0.9rem; }
+    input, select, textarea {
+      border: 1px solid #cbd5f5;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.5rem;
+    }
+    .checkbox-group label {
+      font-weight: 500;
+      background: #f1f5f9;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      border: none;
+      color: white;
+      font-weight: 700;
+      padding: 0.9rem;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    footer {
+      margin-top: 5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+    @media(max-width: 900px){
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size: 2.4rem; }
+    }
+
+    label{
+      margin-bottom: 0.5rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #06b6d4, #22c55e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .quote {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1rem;
+      border-left: 4px solid #2563eb;
+      background: #eff6ff;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #334155;
+      border-radius: 6px;
+      max-width: fit-content;
+    }
+    blockquote {
+      margin: 0;
+    }
+
+    .select-modern {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #cbd5f5;
+      background-color: #ffffff;
+
+      font-size: 0.95rem;
+      color: #0f172a;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23636' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 14px;
+
+      cursor: pointer;
+    }
+
+    .select-modern:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div>
+        <div class="tagline">PKM Center Universitas Negeri Malang</div>
+        <h1>PKM Bestie<br/><span class="gradient-text">Find Your Dream Team</span></h1>
+        <p>
+          <b>Mau ikut PKM tapi masih belum punya tim?</b><br>
+          PKM Bestie akan bantu kamu menemukan tim PKM yang cocok sesuai minat dan keahlianmu.
+          Cukup isi formulir ini, dan datamu akan menjadi bagian dari sistem PKM Bestie.
+        </p>
+        <p><b>Yuk, isi sekarang dan temukan true bestie PKM kamu!</b></p>
+        <blockquote class="quote">
+          UM Bisa, UM Jawara — Satu Jiwa untuk UM Jadi Jawara.
+        </blockquote>
+      </div>
+
+      <div class="card">
+        <form id="pkmForm" class="form-grid">
+        <div class="field">
+          <label>Nama Lengkap</label>
+          <input type="text" name="nama" required placeholder="nama lengkap kamu" />
+        </div>
+
+        <div class="field">
+          <label>NIM</label>
+          <input type="text" name="nim" required placeholder="nim kamu" />
+        </div>
+
+        <div class="field">
+          <label>Fakultas</label>
+          <select name="fakultas" class="select-modern" required>
+            <option value="">Pilih Fakultas</option>
+            <option>FIP</option><option>FS</option><option>FMIPA</option>
+            <option>FEB</option><option>FT</option><option>FIK</option>
+            <option>FIS</option><option>FPsi</option><option>FV</option><option>FK</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Program Studi</label>
+          <input type="text" name="prodi" placeholder="S1 Pendidikan Teknik Informatika"/>
+        </div>
+
+        <div class="field">
+          <label>Angkatan</label>
+          <select name="angkatan" class="select-modern" required>
+            <option>2022</option><option>2023</option>
+            <option>2024</option><option>2025</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Kontak (WhatsApp Only)</label>
+          <input type="text" name="contact" required placeholder="boleh minta wa nya?"/>
+        </div>
+
+        <div class="field full">
+          <label>Keahlian (boleh lebih dari satu)</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="skill" value="Programming"> Programming</label>
+            <label><input type="checkbox" name="skill" value="Penulisan"> Penulisan</label>
+            <label><input type="checkbox" name="skill" value="Desain"> Desain</label>
+            <label><input type="checkbox" name="skill" value="Riset"> Riset</label>
+            <label><input type="checkbox" name="skill" value="Data Analysis"> Data Analysis</label>
+            <label><input type="checkbox" name="skill" value="Public Speaking"> Public Speaking</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label>Minat Skema PKM</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="skema" value="PKM-K"> PKM-K</label>
+            <label><input type="checkbox" name="skema" value="PKM-KI"> PKM-KI</label>
+            <label><input type="checkbox" name="skema" value="PKM-KC"> PKM-KC</label>
+            <label><input type="checkbox" name="skema" value="PKM-PM"> PKM-PM</label>
+            <label><input type="checkbox" name="skema" value="PKM-PI"> PKM-PI</label>
+            <label><input type="checkbox" name="skema" value="PKM-RE"> PKM-RE</label>
+            <label><input type="checkbox" name="skema" value="PKM-RSH"> PKM-RSH</label>
+            <label><input type="checkbox" name="skema" value="PKM-VGK"> PKM-VGK</label>
+            <label><input type="checkbox" name="skema" value="PKM-GFT"> PKM-GFT</label>
+            <label><input type="checkbox" name="skema" value="PKM-AI"> PKM-AI</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <button type="submit">Daftar PKM Bestie</button>
+        </div>
+      </form>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 PKM Center Universitas Negeri Malang · Make it simple
+    </footer>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyOD1NNR7zQ9v6Vpry6U2skMBgrV7rZpTFZoQYvY7phgQy0CNek_CEQHUSLbXcD5Wu3/exec';
+    const form = document.getElementById('pkmForm');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(() => {
+          alert('Berhasil! Data kamu sudah tersimpan ✨');
+          form.reset();
+        })
+        .catch(() => alert('Gagal mengirim data.'));
+    });
+  </script>
+</body>
+</html>
